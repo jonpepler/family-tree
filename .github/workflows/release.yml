@@ -13,11 +13,11 @@ jobs:
       run: |
         echo "pepler-family-tree:$(date +%s)" > TAG
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag $(cat $TAG)
+      run: docker build . --file Dockerfile --tag $(cat TAG)
     - name: Heroku Release
       run: |
         docker login --username=_ --password=$HEROKU_API_KEY registry.heroku.com
-        docker push $(cat $TAG)
+        docker push $(cat TAG)
         heroku container:release web --app $HEROKU_APP
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}

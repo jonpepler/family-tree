@@ -1,5 +1,11 @@
 FROM ruby:2-alpine
-RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
+RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
+  && apk update \
+  && apk add --update-cache postgresql-client nodejs yarn \
+    bash libffi-dev readline build-base postgresql-dev tzdata \
+    libc-dev linux-headers libxml2-dev libxslt-dev readline-dev gcc libc-dev \
+  && rm -rf /var/cache/apk/*
+
 RUN mkdir /family-tree
 WORKDIR /family-tree
 COPY Gemfile /family-tree/Gemfile

@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: db
+  username: postgres
+  password:
+  pool: 5
+
+development:
+  <<: *default
+  database: family-tree_development
+
+
+test:
+  <<: *default
+  database: family-tree_test
+#
+production:
+  <<: *default
+  database: family-tree_production
+  username: family-tree
+  password: <%= ENV['FAMILY-TREE_DATABASE_PASSWORD'] %>

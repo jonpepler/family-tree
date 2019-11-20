@@ -17,6 +17,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: family-tree_production
   username: family-tree
   password: <%= ENV['FAMILY-TREE_DATABASE_PASSWORD'] %>

@@ -11,7 +11,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Define variables
       run: |
-        echo "pepler-family-tree:$(date +%s)" > TAG
+        echo "registry.heroku.com/pepler-family-tree/web" > TAG
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag $(cat TAG)
     - name: Heroku Release

@@ -10,6 +10,8 @@ RUN mkdir /family-tree
 WORKDIR /family-tree
 COPY Gemfile /family-tree/Gemfile
 COPY Gemfile.lock /family-tree/Gemfile.lock
+COPY package.json /family-tree/package.json
+COPY yarn.lock /family-tree/yarn.lock
 RUN bundle install
 COPY . /family-tree
 

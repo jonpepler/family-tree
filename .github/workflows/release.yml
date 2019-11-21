@@ -12,6 +12,8 @@ jobs:
     - name: Define variables
       run: |
         echo "registry.heroku.com/pepler-family-tree/web" > TAG
+    - name: eslint
+      run: npm run lint
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag $(cat TAG)
     - name: Heroku Release

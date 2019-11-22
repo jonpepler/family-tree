@@ -22,5 +22,8 @@ RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
 
+# Default env vars
+ENV HOST_URL myfamilytree.herokuapp.com
+
 # Start the main process.
 CMD ["rails", "server", "-b", "0.0.0.0"]

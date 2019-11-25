@@ -18,6 +18,8 @@ jobs:
         npm run lint
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag $(cat TAG)
+    - name: test rails with rspec
+      run: docker run -e RAILS_ENV=test $(cat TAG) rspec
     - name: Heroku Release
       run: |
         docker login --username=_ --password=$HEROKU_API_KEY registry.heroku.com

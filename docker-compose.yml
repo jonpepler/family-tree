@@ -13,6 +13,9 @@ services:
       - "3000:3000"
     depends_on:
       - db
+    environment:
+      # local test env vars
+      - HEROKU_POSTGRESQL_SILVER_URL=postgresql://postgres@db:5432/family-tree_test
   webpacker:
     image: family-tree_web
     command: ["./webpack_dev.sh"]

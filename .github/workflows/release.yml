@@ -19,7 +19,9 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag $(cat TAG)
     - name: test rails with rspec
-      run: docker run -e RAILS_ENV=test $(cat TAG) rspec
+      run: docker run -e RAILS_ENV=test -e HEROKU_POSTGRESQL_SILVER_URL=$HEROKU_POSTGRESQL_SILVER_URL $(cat TAG) rspec
+      env:
+        HEROKU_POSTGRESQL_SILVER_URL: ${{ secrets.HEROKU_POSTGRESQL_SILVER_URL }}
     - name: Heroku Release
       run: |
         docker login --username=_ --password=$HEROKU_API_KEY registry.heroku.com

@@ -20,3 +20,4 @@ If you fork this repo and want to keep the GitHub Actions working, you'll need t
 | ------------- | ------------- |
 | HEROKU_APP_NAME  | The name of your app, eg 'my-family-tree'  |
 | HEROKU_API_KEY  | The API key for your Heroku account, can be found on [this](https://dashboard.heroku.com/account) page  |
+| HEROKU_POSTGRESQL_SILVER_URL  | (optional) A connection URI for a remote test database, used in GitHub Action  |

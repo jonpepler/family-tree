@@ -12,6 +12,7 @@ Some default variables will need to change when you run the container in a produ
 | Value  | Description |
 | ------------- | ------------- |
 | HOST_URL  | The host for your app. eg 'my-family-tree.herokuapp.com'  |
+| FAMILY_NAME  | A family name for your tree. Defaults to 'Smith'.  |
 
 #### Pipeline
 If you fork this repo and want to keep the GitHub Actions working, you'll need to set these in `Settings > Secrets` in your repo:

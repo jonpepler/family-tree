@@ -24,6 +24,7 @@ EXPOSE 3000
 
 # Default env vars
 ENV HOST_URL localhost:3000
+ENV FAMILY_NAME Smith
 
 # Start the main process.
 CMD ["rails", "server", "-b", "0.0.0.0"]
